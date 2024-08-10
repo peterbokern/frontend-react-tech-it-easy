@@ -1,0 +1,68 @@
+h1 {
+    padding: 50px 0;
+}
+
+.sales-dashboard {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-basis: 80%;
+    gap: 20px;
+}
+
+.sales-card {
+    flex-basis : 250px;
+    height: 250px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: black solid 1px;
+    margin-top: 10px;
+    padding: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+}
+
+.card-title {
+    width: 80%;
+    text-align: center;
+}
+.count {
+    font-size: 2rem;
+    font-weight: normal;
+}
+
+.green {
+    background-color: rgba(0, 128, 0, 0.2); /* Green with high transparency */
+    color: rgb(0, 128, 0); /* Full color for text */
+}
+
+.purple {
+    background-color: rgba(128, 0, 128, 0.2); /* Purple with high transparency */
+    color: rgb(128, 0, 128); /* Full color for text */
+}
+
+.red {
+    background-color: rgba(255, 0, 0, 0.2); /* Red with high transparency */
+    color: rgb(255, 0, 0); /* Full color for text */
+}
+
+@media screen and (max-width: 900px) {
+    .sales-dashboard {
+        flex-direction: column; /* Stack the cards in a column */
+        align-items: center; /* Center the cards */
+    }
+    .sales-card {
+        min-width: 250px;
+    }
+}
