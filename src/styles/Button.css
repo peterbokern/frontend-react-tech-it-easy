@@ -1,0 +1,7 @@
+.filter-button {
+    border: black solid 1px;
+    flex-basis: 200px;
+    padding: 10px;
+    border-radius: 20px;
+}
+

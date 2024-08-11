@@ -1,4 +1,5 @@
 // BEST VERKOPENDE TV
+
 export const bestSellingTv = {
     type: 'UHD 55AU7040',
     name: 'Crystal',
@@ -121,7 +122,7 @@ export let inventory = [
         screenQuality: 'Ultra HD/4K',
         smartTv: true,
         sourceImg: 'https://media.s-bol.com/B9n73k76VG2N/vQYEKNn/1200x734.jpg',
-        options:     [
+        options: [
             {
                 name: "wifi",
                 applicable: true,
@@ -157,7 +158,7 @@ export let inventory = [
         screenQuality: 'Ultra HD/4K',
         sourceImg: 'https://media.s-bol.com/ROVXLp4q9joq/1200x751.jpg',
         smartTv: true,
-        options:     [
+        options: [
             {
                 name: "wifi",
                 applicable: true,
@@ -328,4 +329,76 @@ export let inventory = [
     },
 ];
 
+// console.log(inventory.map(item => item.name));
+//
+// function getSoldOutProducts(products) {
+//     let soldOutProducts = [];
+//     for (let i = 0; i < products.length; ++i) {
+//         if (checkIfSoldOut(products[i])) {
+//             soldOutProducts.push({products: products[i]});
+//         }
+//     }
+//     return soldOutProducts;
+// }
+//
+// console.log(getSoldOutProducts(inventory))
 
+// Soldout Products
+// const soldOut = (products) => {
+//     return products.filter(product => (product.sold === product.originalStock));
+// }
+
+// console.log(soldOut(inventory));
+
+// const searchByModel = (products, type) => {
+//     return products.filter(product => (product.type === type));
+// }
+
+// console.log(searchByModel(inventory, 'NH3216SMART'));
+
+const productsSuitableForSports = (products) => {
+    return products.map(product => ({name: product.name, suitable: checkSuitableForSports(product)}))
+}
+
+const checkSuitableForSports = (product) => {
+    return (product.refreshRate >= 100);
+}
+
+const checkAvailableScreenSizeOrHigher = (availableSizes, min) => {
+    return availableSizes.some(size => size >= min);
+};
+
+const productsContainScreenSize = (products, min) => {
+    return products.filter(product => (checkAvailableScreenSizeOrHigher(product.availableSizes, min)));
+}
+
+const findProductsByOption = (products, searchOption) => {
+    return products.filter(product => product.options[searchOption]);
+}
+//
+// console.log(productsContainScreenSize(inventory, '65'));
+//
+// console.log(inventory.map(product => ({name: product.name, options: product.options[5]})));
+
+// console.log(inventory.map(product => {name: product.name, ambilight: }))
+
+const transformedInventory = (products) => {
+    // return transformed array of products
+    return products.map(product => {
+        //creat an object for all option
+        const transformedOptions = {}
+        //iterate over options and assign key value pares
+        product.options.forEach(option => {
+            transformedOptions[option.name] = option.applicable;
+        })
+        return {
+            ...product,
+            options: transformedOptions
+        }
+    })
+}
+
+const inventoryWithOptions = transformedInventory(inventory);
+// console.log(inventoryWithOptions);
+console.log('product with hdr')
+console.log(findProductsByOption(inventoryWithOptions, 'ambiLight'));
