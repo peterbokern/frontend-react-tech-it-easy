@@ -382,23 +382,30 @@ const findProductsByOption = (products, searchOption) => {
 
 // console.log(inventory.map(product => {name: product.name, ambilight: }))
 
-const transformedInventory = (products) => {
-    // return transformed array of products
-    return products.map(product => {
-        //creat an object for all option
-        const transformedOptions = {}
-        //iterate over options and assign key value pares
-        product.options.forEach(option => {
-            transformedOptions[option.name] = option.applicable;
-        })
-        return {
-            ...product,
-            options: transformedOptions
-        }
-    })
-}
+// const transformedInventory = (products) => {
+//     // return transformed array of products
+//     return products.map(product => {
+//         //creat an object for all option
+//         const transformedOptions = {}
+//         //iterate over options and assign key value pares
+//         product.options.forEach(option => {
+//             transformedOptions[option.name] = option.applicable;
+//         })
+//         return {
+//             ...product,
+//             options: transformedOptions
+//         }
+//     })
+// }
 
-const inventoryWithOptions = transformedInventory(inventory);
-// console.log(inventoryWithOptions);
-console.log('product with hdr')
-console.log(findProductsByOption(inventoryWithOptions, 'ambiLight'));
+// const inventoryWithOptions = transformedInventory(inventory);
+// // console.log(inventoryWithOptions);
+// // console.log('product with hdr')
+// // console.log(findProductsByOption(inventoryWithOptions, 'ambiLight'));
+//
+console.log(inventory[0]);
+const options = {};
+inventory[0].options.forEach(option => {
+    options[option.name] = option.applicable;
+})
+console.log(options['wifi']);

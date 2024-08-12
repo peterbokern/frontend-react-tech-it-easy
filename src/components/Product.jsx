@@ -1,5 +1,10 @@
 
-import { displayProductTitle, formatProductPrice, displayAvailableScreenSizes } from '../helpers/helperFunctions';
+import {
+    displayProductTitle,
+    formatProductPrice,
+    displayAvailableScreenSizes,
+    displayProductOptions
+} from '../helpers/helperFunctions';
 
 const Product = ({product}) => {
     return (
@@ -11,6 +16,7 @@ const Product = ({product}) => {
                     <h3 className="product-title">{displayProductTitle(product)}</h3>
                     <p className="product-price">{formatProductPrice(product)}</p>
                     <p className="product-screen-sizes">{displayAvailableScreenSizes(product)}</p>
+                    <p className="product-options">{displayProductOptions(product)}</p>
                 </div>
             </div>
     );

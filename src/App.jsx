@@ -3,6 +3,7 @@ import './styles/globals.css';
 import './styles/reusables.css';
 import {bestSellingTv} from "./constants/inventory.js";
 
+
 import {
     countSoldProducts,
     countOriginalStock,
@@ -12,6 +13,8 @@ import {
     formatProductPrice
 } from "./helpers/helperFunctions.js";
 import ProductList from "./components/ProductList.jsx";
+import BrandList from "./components/Brandlist.jsx";
+import Product from "./components/Product.jsx";
 
 
 function App() {
@@ -40,18 +43,13 @@ function App() {
                 </section>
                 <section className="container">
                     <h2>Best verkochte TV</h2>
-                    <div className="product-container best-sold">
-                        <span className="product-image"><img src={bestSellingTv.sourceImg} alt="product image"/></span>
-                        <div className="product-details">
-                            <h3 className="product-title">{displayProductTitle(bestSellingTv)}</h3>
-                            <p className="product-price">{formatProductPrice(bestSellingTv)}</p>
-                            <p className="product-screen-sizes">{displayAvailableScreenSizes(bestSellingTv)}</p>
-                            <p>[check-icon] wifi [not-icon] speech [check-icon] hdr [check-icon] bluetooth [not-icon] ambilight</p>
-                        </div>
-                    </div>
+                    <Product product={bestSellingTv}></Product>
                 </section>
                 <section className="container">
                     <ProductList className="product-list"/>
+                </section>
+                <section className="container">
+                    <BrandList/>
                 </section>
             </main>
 

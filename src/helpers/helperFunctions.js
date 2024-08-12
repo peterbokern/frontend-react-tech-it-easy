@@ -1,4 +1,4 @@
-import { inventory, bestSellingTv } from "../constants/inventory.js";
+import {inventory} from "../constants/inventory.js";
 
 export function countSoldProducts() {
     const salesPerProduct = inventory.map(item => item.sold);
@@ -38,3 +38,10 @@ function inchesToCentimeters(inches) {
     return inches * centimetersPerInch;
 }
 
+export function displayProductOptions(product) {
+    let optionsString = ""
+    product.options.forEach(option => {
+        optionsString += `${option.name} ${option.applicable} `;
+    });
+    return optionsString;
+}
