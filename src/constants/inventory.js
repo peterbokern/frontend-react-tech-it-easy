@@ -375,6 +375,17 @@ const productsContainScreenSize = (products, min) => {
 const findProductsByOption = (products, searchOption) => {
     return products.filter(product => product.options[searchOption]);
 }
+
+const sortByBestSold = (array) => {
+    return array.sort((a,b) => a.sold - b.sold);
+}
+
+const sortCheapest = (array) => {
+    return array.sort((a,b) => a.price - b.price);
+}
+
+
+console.log(sortCheapest(inventory));
 //
 // console.log(productsContainScreenSize(inventory, '65'));
 //
@@ -403,9 +414,10 @@ const findProductsByOption = (products, searchOption) => {
 // // console.log('product with hdr')
 // // console.log(findProductsByOption(inventoryWithOptions, 'ambiLight'));
 //
+/*
 console.log(inventory[0]);
 const options = {};
 inventory[0].options.forEach(option => {
     options[option.name] = option.applicable;
 })
-console.log(options['wifi']);
+console.log(options['wifi']);*/

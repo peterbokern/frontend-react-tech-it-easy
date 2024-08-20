@@ -1,7 +1,41 @@
 .filter-button {
-    border: black solid 1px;
-    flex-basis: 200px;
-    padding: 10px;
-    border-radius: 20px;
+    border: 1px solid #ccc; /* Light grey border for a subtle appearance */
+    background-color: white; /* White background for a clean look */
+    color: #333; /* Dark grey text color */
+    flex-basis: 300px;
+    padding: 10px 20px; /* Extra padding for a larger clickable area */
+    border-radius: 20px; /* Rounded corners for a modern feel */
+    font-weight: 600; /* Slightly bold text */
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+
 }
 
+.filter-button:hover {
+    background-color: #f0f0f0; /* Light grey background on hover */
+    border-color: #007BFF; /* Border color changes to blue on hover */
+    color: #007BFF; /* Text color changes to blue on hover */
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2); /* Larger shadow on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.filter-button:active {
+    background-color: #007BFF; /* Blue background when active */
+    color: white; /* White text color when active */
+    border-color: #007BFF; /* Border matches background */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Slight shadow reduction on click */
+    transform: translateY(0); /* No lift effect on click */
+}
+
+.filter-button.selected {
+    background-color: #007BFF; /* Blue background for selected state */
+    color: white; /* White text for selected state */
+    border-color: #007BFF; /* Border matches background */
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2); /* Consistent shadow for selected state */
+}
+
+.filter-button .icon {
+    margin-right: 8px; /* Space between icon and text */
+}
