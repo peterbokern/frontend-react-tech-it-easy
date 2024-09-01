@@ -1,0 +1,84 @@
+h1 {
+    padding: 50px 0;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px 0;
+}
+
+section {
+    width: 100%;
+}
+
+.sales-dashboard {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-basis: 80%;
+    gap: 20px;
+}
+
+.sales-card {
+    flex-basis: 250px;
+    height: 200px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: black solid 1px;
+    margin-top: 10px;
+    padding: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+}
+
+.card-title {
+    width: 80%;
+    text-align: center;
+}
+
+.count {
+    font-size: 2rem;
+    font-weight: normal;
+}
+
+.green {
+    background-color: rgba(0, 128, 0, 0.2);
+    color: rgb(0, 128, 0);
+}
+
+.purple {
+    background-color: rgba(0, 0, 255, 0.2);
+    color: rgb(0, 0, 255);
+}
+
+.red {
+    background-color: rgba(255, 0, 0, 0.2);
+    color: rgb(255, 0, 0);
+}
+
+@media screen and (max-width: 900px) {
+    .sales-dashboard {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sales-card {
+        min-width: 250px;
+    }
+}

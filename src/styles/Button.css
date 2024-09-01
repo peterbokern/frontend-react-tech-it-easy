@@ -1,0 +1,40 @@
+.filter-button {
+    border: 1px solid #ccc;
+    background-color: white;
+    color: #333;
+    flex-basis: 300px;
+    padding: 20px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.filter-button:hover {
+    background-color: #f0f0f0;
+    border-color: #007BFF;
+    color: #007BFF;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.filter-button:active {
+    background-color: #007BFF;
+    color: white;
+    border-color: #007BFF;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+}
+
+.filter-button.selected {
+    background-color: #007BFF;
+    color: white;
+    border-color: #007BFF;
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
+}
+
+.filter-button .icon {
+    margin-right: 8px;
+}

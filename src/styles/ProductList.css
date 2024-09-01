@@ -1,0 +1,14 @@
+.product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-basis: 60px;
+    gap:20px;
+}

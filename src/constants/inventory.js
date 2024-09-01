@@ -1,4 +1,5 @@
 // BEST VERKOPENDE TV
+
 export const bestSellingTv = {
     type: 'UHD 55AU7040',
     name: 'Crystal',
@@ -121,7 +122,7 @@ export let inventory = [
         screenQuality: 'Ultra HD/4K',
         smartTv: true,
         sourceImg: 'https://media.s-bol.com/B9n73k76VG2N/vQYEKNn/1200x734.jpg',
-        options:     [
+        options: [
             {
                 name: "wifi",
                 applicable: true,
@@ -157,7 +158,7 @@ export let inventory = [
         screenQuality: 'Ultra HD/4K',
         sourceImg: 'https://media.s-bol.com/ROVXLp4q9joq/1200x751.jpg',
         smartTv: true,
-        options:     [
+        options: [
             {
                 name: "wifi",
                 applicable: true,
@@ -329,3 +330,78 @@ export let inventory = [
 ];
 
 
+//Opdracht Deel 2 - Opdracht 1a
+
+const tvTypes = inventory.map(item => `TV Type: ${item.type}`);
+console.log('Opdracht Deel 2 - Opdracht 1a: ', tvTypes);
+
+//Opdracht Deel 2 - Opdracht 1b
+const soldOutProducts = inventory.filter(product => product.sold === product.originalStock);
+console.log('Opdracht Deel 2 - Opdracht 1b: ',soldOutProducts);
+
+//Opdracht Deel 2 - Opdracht 1c
+const findTVByModel = (model) => {
+    return inventory.find(product => product.type === model);
+}
+console.log('Opdracht Deel 2 - Opdracht 1c: ',findTVByModel('NH3216SMART'));
+
+//Opdracht Deel 2 - Opdracht 1d
+const productsSuitableForSports = (products) => {
+    const checkSuitableForSports = (product) => {
+        return (product.refreshRate >= 100);
+    }
+    return products.map(product => ({name: product.name, suitable: checkSuitableForSports(product)}))
+}
+
+console.log('Opdracht Deel 2 - Opdracht 1d: ', productsSuitableForSports(inventory));
+
+//Opdracht Deel 2 - Opdracht 1e
+const checkAvailableScreenSizeOrHigher = (availableSizes, min) => {
+    return availableSizes.some(size => size >= min);
+};
+
+const productsContainScreenSize = (products, min) => {
+    return products.filter(product => (checkAvailableScreenSizeOrHigher(product.availableSizes, min)));
+}
+
+console.log('Opdracht Deel 2 - Opdracht 1e: ', productsContainScreenSize(inventory, '65'));
+
+//Opdracht Deel 2 - Opdracht 1f
+const findProductsByOption = (products, searchOption) => {
+    return products.filter(product => {
+            return product.options.some(option => option.name === searchOption && option.applicable);
+        }
+    );
+}
+
+console.log('Opdracht Deel 2 - Opdracht 1f: ', findProductsByOption(inventory,'ambiLight'));
+
+//Opdracht Deel 3 - Opdracht 3a
+const sortByBestSold = (array) => {
+    return [...array].sort((a, b) => b.sold - a.sold);
+};
+
+console.log('Opdracht Deel 2 - Opdracht 3a: ', sortByBestSold(inventory));
+
+//Opdracht Deel 3 - Opdracht 3b
+const sortByCheapestFirst = (array) => {
+    return [...array].sort((a, b) => a.price - b.price);
+};
+
+console.log('Opdracht Deel 2 - Opdracht 3b: ', sortByCheapestFirst(inventory));
+
+//Opdracht Deel 3 - Opdracht 3c
+const sortByMostSuitableForSports = (array) => {
+    return [...array].sort((a, b) => b.refreshRate - a.refreshRate);
+};
+
+console.log('Opdracht Deel 2 - Opdracht 3c: ', sortByMostSuitableForSports(inventory));
+
+// Bonus - Opdracht 1
+
+//Opdracht Deel 3 - Opdracht 3c
+const sortByLargestScreenSize = (array) => {
+    return [...array].sort((a, b) => b.availableSizes[b.availableSizes.length - 1] - a.availableSizes[a.availableSizes.length - 1]);
+};
+
+console.log('Bonus - Opdracht 1 ', sortByLargestScreenSize(inventory));
