@@ -329,41 +329,33 @@ export let inventory = [
     },
 ];
 
-// console.log(inventory.map(item => item.name));
-//
-// function getSoldOutProducts(products) {
-//     let soldOutProducts = [];
-//     for (let i = 0; i < products.length; ++i) {
-//         if (checkIfSoldOut(products[i])) {
-//             soldOutProducts.push({products: products[i]});
-//         }
-//     }
-//     return soldOutProducts;
-// }
-//
-// console.log(getSoldOutProducts(inventory))
 
-// Soldout Products
-// const soldOut = (products) => {
-//     return products.filter(product => (product.sold === product.originalStock));
-// }
+//Opdracht Deel 2 - Opdracht 1a
 
-// console.log(soldOut(inventory));
+const tvTypes = inventory.map(item => `TV Type: ${item.type}`);
+console.log('Opdracht Deel 2 - Opdracht 1a: ', tvTypes);
 
-// const searchByModel = (products, type) => {
-//     return products.filter(product => (product.type === type));
-// }
+//Opdracht Deel 2 - Opdracht 1b
+const soldOutProducts = inventory.filter(product => product.sold === product.originalStock);
+console.log('Opdracht Deel 2 - Opdracht 1b: ',soldOutProducts);
 
-// console.log(searchByModel(inventory, 'NH3216SMART'));
+//Opdracht Deel 2 - Opdracht 1c
+const findTVByModel = (model) => {
+    return inventory.find(product => product.type === model);
+}
+console.log('Opdracht Deel 2 - Opdracht 1c: ',findTVByModel('NH3216SMART'));
 
+//Opdracht Deel 2 - Opdracht 1d
 const productsSuitableForSports = (products) => {
+    const checkSuitableForSports = (product) => {
+        return (product.refreshRate >= 100);
+    }
     return products.map(product => ({name: product.name, suitable: checkSuitableForSports(product)}))
 }
 
-const checkSuitableForSports = (product) => {
-    return (product.refreshRate >= 100);
-}
+console.log('Opdracht Deel 2 - Opdracht 1d: ', productsSuitableForSports(inventory));
 
+//Opdracht Deel 2 - Opdracht 1e
 const checkAvailableScreenSizeOrHigher = (availableSizes, min) => {
     return availableSizes.some(size => size >= min);
 };
@@ -372,52 +364,44 @@ const productsContainScreenSize = (products, min) => {
     return products.filter(product => (checkAvailableScreenSizeOrHigher(product.availableSizes, min)));
 }
 
+console.log('Opdracht Deel 2 - Opdracht 1e: ', productsContainScreenSize(inventory, '65'));
+
+//Opdracht Deel 2 - Opdracht 1f
 const findProductsByOption = (products, searchOption) => {
-    return products.filter(product => product.options[searchOption]);
+    return products.filter(product => {
+            return product.options.some(option => option.name === searchOption && option.applicable);
+        }
+    );
 }
 
+console.log('Opdracht Deel 2 - Opdracht 1f: ', findProductsByOption(inventory,'ambiLight'));
+
+//Opdracht Deel 3 - Opdracht 3a
 const sortByBestSold = (array) => {
-    return array.sort((a,b) => a.sold - b.sold);
-}
+    return [...array].sort((a, b) => b.sold - a.sold);
+};
 
-const sortCheapest = (array) => {
-    return array.sort((a,b) => a.price - b.price);
-}
+console.log('Opdracht Deel 2 - Opdracht 3a: ', sortByBestSold(inventory));
 
+//Opdracht Deel 3 - Opdracht 3b
+const sortByCheapestFirst = (array) => {
+    return [...array].sort((a, b) => a.price - b.price);
+};
 
-console.log(sortCheapest(inventory));
-//
-// console.log(productsContainScreenSize(inventory, '65'));
-//
-// console.log(inventory.map(product => ({name: product.name, options: product.options[5]})));
+console.log('Opdracht Deel 2 - Opdracht 3b: ', sortByCheapestFirst(inventory));
 
-// console.log(inventory.map(product => {name: product.name, ambilight: }))
+//Opdracht Deel 3 - Opdracht 3c
+const sortByMostSuitableForSports = (array) => {
+    return [...array].sort((a, b) => b.refreshRate - a.refreshRate);
+};
 
-// const transformedInventory = (products) => {
-//     // return transformed array of products
-//     return products.map(product => {
-//         //creat an object for all option
-//         const transformedOptions = {}
-//         //iterate over options and assign key value pares
-//         product.options.forEach(option => {
-//             transformedOptions[option.name] = option.applicable;
-//         })
-//         return {
-//             ...product,
-//             options: transformedOptions
-//         }
-//     })
-// }
+console.log('Opdracht Deel 2 - Opdracht 3c: ', sortByMostSuitableForSports(inventory));
 
-// const inventoryWithOptions = transformedInventory(inventory);
-// // console.log(inventoryWithOptions);
-// // console.log('product with hdr')
-// // console.log(findProductsByOption(inventoryWithOptions, 'ambiLight'));
-//
-/*
-console.log(inventory[0]);
-const options = {};
-inventory[0].options.forEach(option => {
-    options[option.name] = option.applicable;
-})
-console.log(options['wifi']);*/
+// Bonus - Opdracht 1
+
+//Opdracht Deel 3 - Opdracht 3c
+const sortByLargestScreenSize = (array) => {
+    return [...array].sort((a, b) => b.availableSizes[b.availableSizes.length - 1] - a.availableSizes[a.availableSizes.length - 1]);
+};
+
+console.log('Bonus - Opdracht 1 ', sortByLargestScreenSize(inventory));

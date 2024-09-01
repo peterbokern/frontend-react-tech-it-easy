@@ -2,12 +2,13 @@ import PropTypes from 'prop-types';
 import {
     displayProductTitle,
     formatProductPrice,
-    displayAvailableScreenSizes,
+    displayAvailableScreenSizes, productOutOfStock,
 } from '../helpers/helperFunctions';
 
 import checkIcon from '../assets/check.png';
 import minusIcon from '../assets/minus.png';
 import '../styles/Product.css';
+import outOfStock from "../assets/out-of-stock.png";
 
 const Product = ({ product }) => {
     const productOptions = (options) => {
@@ -17,7 +18,7 @@ const Product = ({ product }) => {
                     <span key={index} className="product-option-wrapper">
                         {option.name}
                         <img className='product-option-image'
-                             src={option.applicable ? checkIcon : minusIcon}
+                             src={option.applicable ? `${checkIcon}` : `${minusIcon}`}
                              alt={option.applicable ? 'check' : 'min'}
                         />
                     </span>
@@ -37,21 +38,12 @@ const Product = ({ product }) => {
                 <p className="product-screen-sizes">{displayAvailableScreenSizes(product)}</p>
                 {productOptions(product.options)}
             </div>
+            {productOutOfStock(product) && <img className='product-out-of-stock' src={outOfStock} alt="out-of-stock"/> }
         </div>
     );
 };
 
 // Define PropTypes for the Product component
-Product.propTypes = {
-    product: PropTypes.shape({
-        sourceImg: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-        price: PropTypes.number.isRequired,
-        options: PropTypes.arrayOf(PropTypes.shape({
-            name: PropTypes.string.isRequired,
-            applicable: PropTypes.bool.isRequired,
-        })).isRequired,
-    }).isRequired,
-};
+Product.propTypes = {product: PropTypes.object.isRequired,};
 
 export default Product;

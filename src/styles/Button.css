@@ -1,41 +1,40 @@
 .filter-button {
-    border: 1px solid #ccc; /* Light grey border for a subtle appearance */
-    background-color: white; /* White background for a clean look */
-    color: #333; /* Dark grey text color */
+    border: 1px solid #ccc;
+    background-color: white;
+    color: #333;
     flex-basis: 300px;
-    padding: 10px 20px; /* Extra padding for a larger clickable area */
-    border-radius: 20px; /* Rounded corners for a modern feel */
-    font-weight: 600; /* Slightly bold text */
+    padding: 20px 20px;
+    border-radius: 20px;
+    font-weight: 600;
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
-
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .filter-button:hover {
-    background-color: #f0f0f0; /* Light grey background on hover */
-    border-color: #007BFF; /* Border color changes to blue on hover */
-    color: #007BFF; /* Text color changes to blue on hover */
-    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2); /* Larger shadow on hover */
-    transform: translateY(-2px); /* Slight lift effect on hover */
+    background-color: #f0f0f0;
+    border-color: #007BFF;
+    color: #007BFF;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+    transform: translateY(-2px);
 }
 
 .filter-button:active {
-    background-color: #007BFF; /* Blue background when active */
-    color: white; /* White text color when active */
-    border-color: #007BFF; /* Border matches background */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Slight shadow reduction on click */
-    transform: translateY(0); /* No lift effect on click */
+    background-color: #007BFF;
+    color: white;
+    border-color: #007BFF;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
 }
 
 .filter-button.selected {
-    background-color: #007BFF; /* Blue background for selected state */
-    color: white; /* White text for selected state */
-    border-color: #007BFF; /* Border matches background */
-    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2); /* Consistent shadow for selected state */
+    background-color: #007BFF;
+    color: white;
+    border-color: #007BFF;
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
 }
 
 .filter-button .icon {
-    margin-right: 8px; /* Space between icon and text */
+    margin-right: 8px;
 }

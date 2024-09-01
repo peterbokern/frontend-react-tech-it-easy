@@ -1,7 +1,10 @@
 import './styles/App.css';
 import './styles/globals.css';
 import './styles/reusables.css';
-import {bestSellingTv} from "./constants/inventory.js";
+import './styles/ProductList.css';
+import './styles/Product.css'
+
+import {bestSellingTv, inventory} from "./constants/inventory.js";
 
 
 import {
@@ -29,15 +32,15 @@ function App() {
                     <div className="sales-dashboard">
                         <article className="sales-card green">
                             <p className="card-title">Aantal verkochte producten</p>
-                            <p className="count">{countSoldProducts()}</p>
+                            <p className="count">{countSoldProducts(inventory)}</p>
                         </article>
                         <article className="sales-card purple">
                             <p className="card-title">Aantal ingekochte producten</p>
-                            <p className="count">{countOriginalStock()}</p>
+                            <p className="count">{countOriginalStock(inventory)}</p>
                         </article>
                         <article className="sales-card red">
                             <p className="card-title">Aantal te verkopen producten</p>
-                            <p className="count">{countProductsToSell()}</p>
+                            <p className="count">{countProductsToSell(inventory)}</p>
                         </article>
                     </div>
                 </section>

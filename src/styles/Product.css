@@ -1,5 +1,6 @@
 
 .product-container {
+    position: relative;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -8,6 +9,13 @@
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     gap: 40px;
+}
+
+.product-out-of-stock {
+    height: 100px;
+    position: absolute;
+    top: 0;
+    right: 20px;
 }
 
 .best-sold {
