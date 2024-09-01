@@ -5,6 +5,7 @@ h1 {
 h2 {
     margin-bottom: 10px;
 }
+
 main {
     display: flex;
     flex-direction: column;
@@ -57,24 +58,24 @@ section {
 }
 
 .green {
-    background-color: rgba(0, 128, 0, 0.2); /* Green with high transparency */
-    color: rgb(0, 128, 0); /* Full color for text */
+    background-color: rgba(0, 128, 0, 0.2);
+    color: rgb(0, 128, 0);
 }
 
 .purple {
-    background-color: rgba(0, 0, 255, 0.2); /* Blue with high transparency */
-    color: rgb(0, 0, 255); /* Full color for text */
+    background-color: rgba(0, 0, 255, 0.2);
+    color: rgb(0, 0, 255);
 }
 
 .red {
-    background-color: rgba(255, 0, 0, 0.2); /* Red with high transparency */
-    color: rgb(255, 0, 0); /* Full color for text */
+    background-color: rgba(255, 0, 0, 0.2);
+    color: rgb(255, 0, 0);
 }
 
 @media screen and (max-width: 900px) {
     .sales-dashboard {
-        flex-direction: column; /* Stack the cards in a column */
-        align-items: center; /* Center the cards */
+        flex-direction: column;
+        align-items: center;
     }
 
     .sales-card {
